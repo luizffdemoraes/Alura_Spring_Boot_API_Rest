@@ -2,6 +2,8 @@ package br.com.alura.forum.repository;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -18,7 +20,7 @@ public interface TopicoRepository extends JpaRepository<Topico, Long> {
 	 * Vantagem e que o spring monta aquery para vc;
 	 * Desvantagem e que você deve seguir esse padrão de nomenclatura.
 	 */
-	List<Topico> findByCursoNome(String nomeCurso);
+	Page<Topico> findByCursoNome(String nomeCurso, Pageable paginacao);
 	
 	/**
 	 * É possivel criar um metodo com sua proprio nomenclatura;
